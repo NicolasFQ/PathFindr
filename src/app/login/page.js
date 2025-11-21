@@ -3,9 +3,9 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
-import styles from './styles/login.module.css'
+import styles from '../styles/login.module.css'
 
-export default function Enter(){
+export default function Login(){
     const router = useRouter();
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
@@ -26,7 +26,7 @@ export default function Enter(){
             <div className={styles.leftbox}>
             <h1 className={styles.title}>PathFindr</h1>
             <img src='/phrase.png' alt="Call to action frase" className={styles.phraseimg}/>
-            <img src='/hichat2.png' alt='Clone conversando com o user' className={styles.cloneHey}/>
+            <img src='/hichat1.png' alt='Clone conversando com o user' className={styles.cloneHey}/>
             </div>
             
             <div className={styles.rightbox}>
@@ -51,7 +51,7 @@ export default function Enter(){
                     <input
                     type={mostrarSenha ? "text" : "password"}
                     value={senha}
-                    placeholder='Digite sua senha'
+                    placeholder='Crie sua senha'
                     onChange={(e) => setSenha(e.target.value)}
                     required
                     />
@@ -65,8 +65,28 @@ export default function Enter(){
                     </div>
                     </div>
 
+                    <div className={styles.inputbox}>
+                    <label>Confirmar senha</label>
+                    <div className={styles.writebox}>
+                    <input
+                    type={mostrarConfirmarSenha ? "text" : "password"}
+                    value={confirmarSenha}
+                    placeholder='Confirme sua senha'
+                    onChange={(e) => setConfirmarSenha(e.target.value)}
+                    required
+                    />
+
+                    <img
+                        src={mostrarConfirmarSenha ? '/See.png' : '/DontSee.png'}
+                        className={styles.eyesbtn}
+                        onClick={() => setMostrarConfirmarSenha(!mostrarConfirmarSenha)}
+                        alt="botão de ver ou não a senha"
+                    />
+                    </div>
+                    </div>
+
                     <button type="submit" className={styles.cadastrarBtn}>
-                        <span className={styles.cadastrarText}>Entrar</span>
+                        <span className={styles.cadastrarText}>Cadastrar</span>
                     </button>
 
                     <div className={styles.separator}>
@@ -85,7 +105,7 @@ export default function Enter(){
                     </div>
 
                     <div className={styles.existingAccount}>
-                        Ainda não possui uma conta? <a href="/login" className={styles.loginLink}>Cadastre-se</a>
+                        Já possui conta? <a href="/enter" className={styles.loginLink}>Acesse sua conta</a>
                     </div>
 
                 </form>
