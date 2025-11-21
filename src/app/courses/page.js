@@ -117,7 +117,7 @@ export default function Course() {
 
             {/* Quote */}
             <blockquote className={styles.quote}>
-              "{courseData.quote}"
+              &quot;{courseData.quote}&quot;
             </blockquote>
 
             {/* Description */}
